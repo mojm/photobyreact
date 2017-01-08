@@ -5,13 +5,13 @@ body,html,section,nav{
 body,html{
 	width: 100%;
 	height: 100%;
-	background-color: #000;
+	background-color: #222;
 }
 .stage{
-	position:relative;
+	position: relative;
 	width: 100%;
-	background-color: #000;
-	@at-root
+	height: 680px;
+
 	.img-sec{
 		width:100%;
 		height:100%;
