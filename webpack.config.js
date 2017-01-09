@@ -2,7 +2,8 @@
 const path = require('path');
 const srcPath = path.join(__dirname, './src');
 const buildPath = path.join(__dirname, './build');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 module.exports = {
 	devtool: 'eval-source-map',
@@ -12,6 +13,22 @@ module.exports = {
 		filename: 'main.js',
 		publicPath: 'build/'
 	},
+
+	resolve: {
+		extensions: ['', '.js', 'jsx']
+	},
+
+	plugins: [
+		new HtmlWebpackPlugin(),
+		new ImageminPlugin({
+			optipng: {
+				optimizationLevel: 3
+			},
+			pngquant: {
+				quality: '95-100'
+			}
+		})
+	],
 
 	module: {
 		preLoader: [{
@@ -41,10 +58,7 @@ module.exports = {
 				loader: 'url-loader?limit=8192'
 			}
 
-		],
-		resolve: {
-			extensions: ['', '.js', 'jsx']
-		}
+		]
 	}
 
 }
