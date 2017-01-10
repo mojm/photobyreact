@@ -4,6 +4,8 @@ const srcPath = path.join(__dirname, './src');
 const buildPath = path.join(__dirname, './build');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const WebpackDevServer = require('webpack-dev-server');
+
 
 module.exports = {
 	devtool: 'eval-source-map',
@@ -12,6 +14,11 @@ module.exports = {
 		path: buildPath,
 		filename: 'main.js',
 		publicPath: 'build/'
+	},
+
+	devServer: {
+		port: 8000,
+		progress: true
 	},
 
 	resolve: {
