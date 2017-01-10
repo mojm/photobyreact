@@ -13,7 +13,7 @@ module.exports = {
 	output: {
 		path: buildPath,
 		filename: 'main.js',
-		publicPath: 'build/'
+		publicPath: './'
 	},
 
 	devServer: {
